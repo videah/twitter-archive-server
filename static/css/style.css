@@ -1,0 +1,28 @@
+article {
+    margin: 0;
+    padding-top: var(--block-spacing-horizontal);
+}
+
+.center {
+    text-align: center;
+}
+
+#qr-code {
+    background: white;
+    display: block;
+    margin: 0 auto;
+    padding: 16px;
+}
+
+#install-button {
+    width: 100%;
+}
+
+#header-image {
+    padding-bottom: var(--block-spacing-horizontal);
+}
+
+.container {
+    max-width: 810px;
+    padding-top: 0;
+}
