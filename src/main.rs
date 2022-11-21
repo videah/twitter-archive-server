@@ -3,8 +3,12 @@ mod templates;
 
 #[macro_use] extern crate rocket;
 
+use rocket::Either;
+use rocket::Either::{Left, Right};
+
 use rocket::serde::json::Json;
 use rocket::fs::FileServer;
+use rocket::http::uri::Host;
 use rocket_governor::{RocketGovernor, rocket_governor_catcher};
 
 use twitter_v2::authorization::BearerToken;
@@ -29,6 +33,7 @@ struct NabResponse {
 }
 
 use guards::RateLimitGuard;
+use crate::templates::{IndexTemplate, MastodonTemplate};
 
 #[get("/nab-tweet/<id>")]
 async fn get_tweet_content(id: u64, _ratelimit: RocketGovernor<'_, RateLimitGuard>) -> Json<NabResponse> {
@@ -88,11 +93,15 @@ async fn get_tweet_content(id: u64, _ratelimit: RocketGovernor<'_, RateLimitGuar
 }
 
 #[get("/")]
-async fn index(os: OS<'_>) -> templates::IndexTemplate {
+async fn index(os: OS<'_>, host: &Host<'_>) -> Either<IndexTemplate, MastodonTemplate> {
     let os = os.name.unwrap_or_else(|| std::borrow::Cow::from("Unknown")).to_string();
     let show_install = matches!(os.as_str(), "Mac OS X" | "iOS");
 
-    templates::IndexTemplate { show_install }
+    if host.to_string().eq("mastodon-archive.club") {
+        Right(MastodonTemplate { show_install })
+    } else {
+        Left(IndexTemplate { show_install })
+    }
 }
 
 #[launch]

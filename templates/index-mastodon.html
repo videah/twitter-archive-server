@@ -3,7 +3,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/static/css/pico.min.css">
     <link rel="stylesheet" href="/static/css/style.css">
-    <title>twitter-archive</title>
+    <title>mastodon-archive</title>
 </head>
 <body>
     {% include "fork-corner.html" %}
@@ -14,11 +14,11 @@
                 <li>
                     <strong>
                         <hgroup class="center">
-                            <h2>🐔 twitter-archive</h2>
+                            <h2>🦣 mastodon-archive</h2>
                             <h3>
                                 Because the things we like shouldn't have to be lost forever
                                 <br/>
-                                See also: <a href="https://mastodon-archive.club">mastodon-archive</a>
+                                See also: <a href="https://twitter-archive.club">twitter-archive</a>
                             </h3>
                         </hgroup>
                     </strong>
@@ -27,15 +27,15 @@
             <ul></ul>
         </nav>
         <article>
-            <img width="730" height="430" id="header-image" src="/static/img/header.png"/>
+            <img width="730" height="430" id="header-image" src="/static/img/header-masto.png"/>
             <p class="center">
-                Do you remember that amazing piece of art you liked on Twitter 2 months ago? Do you ever wonder if you'll see it again?
+                Do you remember that amazing piece of art you liked on Mastodon 2 months ago? Do you ever wonder if you'll see it again?
             </p>
             <p class="center">
-                This is an iOS shortcut that allows you to download and automatically organize the contents of a tweet to iCloud.
+                This is an iOS shortcut that allows you to download and automatically organize the contents of a Mastodon post to iCloud.
             </p>
         {% if show_install == true %}
-        <a id="install-button" href="https://www.icloud.com/shortcuts/c5ef2c527dd545fd9b4a92c775214e5d" role="button">Install Shortcut</a>
+        <a id="install-button" href="https://www.icloud.com/shortcuts/3fc19856135042d99e82521d9c42c00d" role="button">Install Shortcut</a>
         {% else %}
             <div class="grid">
                 <div>
@@ -46,23 +46,23 @@
                     </p>
                 </div>
                 <div>
-                    <img id="qr-code" src="/static/img/install-qr-code.png"/>
+                    <img id="qr-code" src="/static/img/install-masto-qr-code.png"/>
                 </div>
             </div>
         {% endif %}
             <h4>How To Use</h4>
             <p style="margin-bottom: 0">
-                Once you've installed the shortcut it should appear in your share sheet when you share a link. To access it
-                in the iOS Twitter app, <i>hold down</i> the share button and select the shortcut from the list.
+                Once you've installed the shortcut it should appear in your share sheet when you go to share a link. Press
+                the share button on a Mastodon post and select the shortcut from the list.
             </p>
-            <img src="/static/img/guide.png"/>
+            <br>
             <p>
-                The shortcut will then download the contents of the tweet and save it to iCloud in folders organised by the tweet authors name. You can then access it in the
-                Files app. Text content along with the original URLs for the tweet are also saved in a separate folder.
+                The shortcut will then download the contents of the post and save it to iCloud in folders organised by the post authors name. You can then access it in the
+                Files app. Text content along with the original URLs for the post are also saved in a separate folder.
             </p>
             <p>Files will be saved in:</p>
-            <code>📁 iCloud Drive > Shortcuts > Twitter Archive</code>
-            <code>📁 iCloud Drive > Shortcuts > Twitter Archive (Text)</code>
+            <code>📁 iCloud Drive > Shortcuts > Mastodon Archive</code>
+            <code>📁 iCloud Drive > Shortcuts > Mastodon Archive (Text)</code>
         </article>
     </main>
 </body>
