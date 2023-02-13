@@ -19,7 +19,7 @@ COPY --from=cacher $CARGO_HOME $CARGO_HOM
 
 RUN cargo build --release --target x86_64-unknown-linux-musl
 
-FROM alpine AS runtime
+FROM zenika/alpine-chrome:latest AS runtime
 WORKDIR /app
 RUN addgroup -S myuser && adduser -S myuser -G myuser
 COPY . .
